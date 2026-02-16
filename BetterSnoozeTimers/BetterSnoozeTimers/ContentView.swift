@@ -30,6 +30,8 @@ struct ContentView: View {
 struct TimerSetupView: View {
     @ObservedObject var timerManager: TimerManager
     @State private var minutes: Int = 1
+    @State private var snoozeDuration: Int = 5
+    @State private var snoozeMode: SnoozeDurationMode = .fixed
     
     var body: some View {
         VStack(spacing: 30) {
@@ -46,8 +48,45 @@ struct TimerSetupView: View {
             .pickerStyle(.wheel)
             .frame(height: 150)
             
+            // Snooze configuration section
+            VStack(spacing: 15) {
+                Text("Snooze Settings")
+                    .font(.headline)
+                
+                HStack {
+                    Text("Initial Snooze Duration:")
+                    Spacer()
+                    Picker("Snooze", selection: $snoozeDuration) {
+                        ForEach([1, 3, 5, 10, 15, 20, 30], id: \.self) { mins in
+                            Text("\(mins) min").tag(mins)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                }
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Snooze Mode:")
+                        .font(.subheadline)
+                    
+                    Picker("Mode", selection: $snoozeMode) {
+                        Text("Fixed Duration").tag(SnoozeDurationMode.fixed)
+                        Text("Decreasing Duration").tag(SnoozeDurationMode.decreasing)
+                    }
+                    .pickerStyle(.segmented)
+                    
+                    Text(snoozeMode == .fixed 
+                        ? "Same duration each snooze"
+                        : "Halves each snooze (min: 1 min)")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+            
             Button(action: {
-                timerManager.startTimer(minutes: minutes)
+                timerManager.startTimer(minutes: minutes, snoozeDuration: snoozeDuration, snoozeMode: snoozeMode)
             }) {
                 Text("Start Timer")
                     .font(.title2)

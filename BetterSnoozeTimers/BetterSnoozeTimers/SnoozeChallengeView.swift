@@ -39,6 +39,14 @@ struct SnoozeChallengeView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white.opacity(0.8))
                 
+                Text("Snooze: \(timerManager.getCurrentSnoozeDuration()) min")
+                    .font(.headline)
+                    .foregroundColor(.white.opacity(0.9))
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.white.opacity(0.2))
+                    .cornerRadius(8)
+                
                 RingGridView(
                     startRingIndex: startRingIndex,
                     endRingIndex: endRingIndex,
@@ -73,7 +81,7 @@ struct SnoozeChallengeView: View {
                 Color.green.opacity(0.3)
                     .ignoresSafeArea()
                 
-                Text("Success! Snoozed for 5 minutes")
+                Text("Success! Snoozed for \(timerManager.getCurrentSnoozeDuration()) minutes")
                     .font(.title)
                     .bold()
                     .foregroundColor(.white)
@@ -90,9 +98,9 @@ struct SnoozeChallengeView: View {
             showSuccess = true
             showError = false
             
-            // Snooze for 5 minutes
+            // Snooze with configured duration
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                timerManager.snoozeTimer(minutes: 5)
+                timerManager.snoozeTimer()
                 dismiss()
             }
         } else {
