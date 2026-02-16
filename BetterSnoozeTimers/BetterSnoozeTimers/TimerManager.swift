@@ -15,8 +15,8 @@ class TimerManager: ObservableObject {
     private var endTime: Date?
     
     // Snooze configuration
-    var initialSnoozeDuration: Int = 5 // in minutes
-    var snoozeDurationMode: SnoozeDurationMode = .fixed
+    private var initialSnoozeDuration: Int = 5 // in minutes
+    private var snoozeDurationMode: SnoozeDurationMode = .fixed
     private var currentSnoozeDuration: Int = 5
     
     func startTimer(minutes: Int, snoozeDuration: Int = 5, snoozeMode: SnoozeDurationMode = .fixed) {
@@ -71,8 +71,8 @@ class TimerManager: ObservableObject {
             snoozeMins = initialSnoozeDuration
         case .decreasing:
             snoozeMins = max(1, currentSnoozeDuration)
-            // Decrease for next time (halve the duration, rounded down)
-            currentSnoozeDuration = max(1, currentSnoozeDuration / 2)
+            // Decrease for next time (halve the duration, rounded down, minimum 1)
+            currentSnoozeDuration = max(1, snoozeMins / 2)
         }
         
         let duration = TimeInterval(snoozeMins * 60)
