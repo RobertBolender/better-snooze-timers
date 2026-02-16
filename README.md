@@ -17,6 +17,16 @@ The app implements a unique 3x3 grid of rings as a snooze control mechanism:
 - **Error Feedback**: Visual feedback if wrong rings are used
 - **Difficulty**: Makes accidental snoozing nearly impossible
 
+### Configurable Snooze Duration
+
+Customize snooze behavior per timer:
+
+- **Snooze Duration**: Choose from 1, 3, 5, 10, 15, 20, or 30 minutes
+- **Fixed Mode**: Same snooze duration every time
+- **Decreasing Mode**: Duration halves each snooze (minimum 1 minute)
+  - Example: 10 min → 5 min → 2 min → 1 min → 1 min...
+  - Helps you wake up gradually by making snoozing less attractive
+
 ## Requirements
 
 - iOS 17.0+

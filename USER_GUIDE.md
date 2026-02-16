@@ -9,10 +9,27 @@ Better Snooze Timers is an iOS app that makes it nearly impossible to accidental
 ### Setting a Timer
 
 1. **Open the app** - You'll see the main timer setup screen
-2. **Select duration** - Use the picker wheel to choose 1-60 minutes
-3. **Start timer** - Tap the blue "Start Timer" button
-4. **Timer runs** - The countdown displays in large numbers
-5. **Cancel anytime** - Tap "Cancel Timer" if you need to stop early
+2. **Select timer duration** - Use the picker wheel to choose 1-60 minutes
+3. **Configure snooze settings**:
+   - **Initial Snooze Duration**: Choose from 1, 3, 5, 10, 15, 20, or 30 minutes
+   - **Snooze Mode**: Select either:
+     - **Fixed Duration**: Same snooze duration every time
+     - **Decreasing Duration**: Snooze duration halves each time (minimum 1 minute)
+4. **Start timer** - Tap the blue "Start Timer" button
+5. **Timer runs** - The countdown displays in large numbers
+6. **Cancel anytime** - Tap "Cancel Timer" if you need to stop early
+
+### Snooze Duration Modes
+
+**Fixed Duration Mode:**
+- Each snooze will be the same length
+- Example: If you set 10 minutes, every snooze will be 10 minutes
+
+**Decreasing Duration Mode:**
+- Each snooze is half the previous duration
+- Minimum snooze is always 1 minute
+- Example: 10 min → 5 min → 2 min → 1 min → 1 min...
+- Helps you wake up gradually by making snoozing less attractive
 
 ### When the Timer Expires
 
@@ -26,14 +43,16 @@ When your timer goes off, you'll see the **Snooze Challenge Screen**:
 
 ### Completing the Snooze Challenge
 
-To snooze the timer for 5 more minutes:
+The snooze screen will show how many minutes the next snooze will be.
+
+To snooze the timer:
 
 1. **Find the green START ring** - Look carefully at all 9 rings
 2. **Long-press the green ring** - Press and hold for at least half a second
 3. **Keep holding** - Don't lift your finger!
 4. **Drag to the red END ring** - While still holding, move your finger
 5. **Release on the red ring** - Let go when your finger is over the red ring
-6. **Success!** - If done correctly, you'll see a green success message
+6. **Success!** - If done correctly, you'll see a green success message with the snooze duration
 
 ### If You Make a Mistake
 
@@ -66,27 +85,41 @@ If you want to cancel the alarm entirely (not recommended!):
 
 ### For Morning Alarms
 1. Set your alarm for when you need to wake up
-2. Place phone across the room so you must get up
-3. The challenge helps ensure you're actually awake before snoozing
+2. Use **Decreasing Duration** mode starting at 10-15 minutes
+3. Place phone across the room so you must get up
+4. The challenge helps ensure you're actually awake before snoozing
+5. Each snooze gets shorter, making it less tempting to keep snoozing
 
 ### For Important Reminders
-1. Use for tasks you absolutely cannot forget
+1. Use **Fixed Duration** mode with short intervals (1-3 minutes)
 2. The difficulty ensures you won't dismiss by accident
 3. Consider setting multiple timers for critical deadlines
 
 ### For Medication Reminders
 1. Perfect for time-sensitive medications
-2. The challenge confirms you're alert enough to take medicine safely
-3. Can't accidentally dismiss while distracted
+2. Use **Fixed Duration** with 5-minute snoozes
+3. The challenge confirms you're alert enough to take medicine safely
+4. Can't accidentally dismiss while distracted
 
-## Customization (Future)
+## Customization
 
-Currently, the app uses fixed settings:
-- 5-minute snooze duration
-- 3×3 grid (9 rings)
-- 0.5-second long press
+### Snooze Configuration
 
-Future versions may allow you to customize these settings.
+You can customize the snooze behavior for each timer:
+
+**Snooze Duration Options:**
+- 1, 3, 5, 10, 15, 20, or 30 minutes
+
+**Snooze Modes:**
+- **Fixed**: Always the same duration
+- **Decreasing**: Halves each time (min 1 minute)
+
+### Future Customization (Planned)
+
+Future versions may allow you to customize:
+- Grid size (2x2, 3x3, 4x4)
+- Long press duration
+- Additional challenge types
 
 ## Troubleshooting
 
@@ -127,7 +160,12 @@ This is an open-source project. For issues, feature requests, or contributions:
 
 ## Version History
 
-### v1.0.0 (Current)
+### v1.1.0 (Current)
+- Added configurable snooze duration (1-30 minutes)
+- Added Fixed and Decreasing snooze modes
+- Display current snooze duration on challenge screen
+
+### v1.0.0
 - Initial release
 - 3×3 ring grid snooze challenge
 - Basic timer functionality

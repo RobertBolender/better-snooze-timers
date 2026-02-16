@@ -41,9 +41,12 @@ ObservableObject managing timer state:
 - `isTimerRunning`: Boolean flag for UI state
 - `timeRemaining`: Current countdown value
 - `showSnoozeChallenge`: Controls sheet presentation
-- `startTimer(minutes:)`: Initiates countdown
-- `snoozeTimer(minutes:)`: Restarts after successful challenge
-- `dismissTimer()`: Cancels the alarm
+- `initialSnoozeDuration`: User-configured snooze duration
+- `snoozeDurationMode`: Fixed or decreasing mode
+- `currentSnoozeDuration`: Tracks current snooze duration (decreases in decreasing mode)
+- `startTimer(minutes:snoozeDuration:snoozeMode:)`: Initiates countdown with snooze config
+- `snoozeTimer()`: Restarts timer with appropriate snooze duration
+- `getCurrentSnoozeDuration()`: Returns current snooze duration for display
 - Uses Foundation Timer for 1-second interval updates
 
 #### SnoozeChallengeView.swift
@@ -113,9 +116,12 @@ Uses SwiftUI property wrappers:
 - Can be adjusted via parameter
 
 ### Snooze Duration
-- Fixed at 5 minutes currently
-- Could be made configurable
-- Passed to `timerManager.snoozeTimer(minutes: 5)`
+- User-configurable per timer (1-30 minutes)
+- Two modes: Fixed and Decreasing
+- Fixed mode: same duration each snooze
+- Decreasing mode: halves each time, minimum 1 minute
+- Duration displayed on snooze challenge screen
+- Passed to `timerManager.snoozeTimer()` which calculates based on mode
 
 ### Visual Feedback
 - Ring scaling during drag (1.1x)
