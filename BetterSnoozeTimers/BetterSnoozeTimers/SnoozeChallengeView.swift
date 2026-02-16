@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SnoozeChallengView: View {
+struct SnoozeChallengeView: View {
     @ObservedObject var timerManager: TimerManager
     @Environment(\.dismiss) var dismiss
     
@@ -274,5 +274,5 @@ struct RingView: View {
 }
 
 #Preview {
-    SnoozeChallengView(timerManager: TimerManager())
+    SnoozeChallengeView(timerManager: TimerManager())
 }

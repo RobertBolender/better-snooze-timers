@@ -22,7 +22,7 @@ struct ContentView: View {
             .padding()
         }
         .sheet(isPresented: $timerManager.showSnoozeChallenge) {
-            SnoozeChallengView(timerManager: timerManager)
+            SnoozeChallengeView(timerManager: timerManager)
         }
     }
 }

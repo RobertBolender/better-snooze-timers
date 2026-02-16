@@ -30,7 +30,7 @@ BetterSnoozeTimers/
 ├── BetterSnoozeTimersApp.swift    # Main app entry point
 ├── ContentView.swift               # Main UI with timer setup
 ├── TimerManager.swift              # Timer state management
-├── SnoozeChallengView.swift       # Ring grid snooze challenge UI
+├── SnoozeChallengeView.swift      # Ring grid snooze challenge UI
 └── Assets.xcassets/               # App assets
 ```
 
